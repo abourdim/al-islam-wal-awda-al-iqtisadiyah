@@ -1,0 +1,12 @@
+{
+  "name": "Islam and Economic Affairs — الإسلام والأوضاع الاقتصادية",
+  "short_name": "الإسلام والاقتصاد",
+  "description": "Interactive trilingual app based on Sheikh Mohammed al-Ghazali's book on Islamic economics",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#E8F5E9",
+  "theme_color": "#1B5E20",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": []
+}
