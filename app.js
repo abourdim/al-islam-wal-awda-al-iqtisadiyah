@@ -466,7 +466,6 @@ function renderGlossary() {
     fr: 'Definitions simplifiees des principaux termes economiques islamiques'
   };
   const container = document.getElementById('glossaryContainer');
-  if (!container) return;
   container.innerHTML = `
     <div class="glossary-header">
       <h3 class="glossary-title">${glossaryTitle[lang]}</h3>
@@ -514,7 +513,6 @@ function renderKeyFigures() {
     fr: '🏛️ Pionniers de l\'Economie Islamique'
   };
   const container = document.getElementById('keyFiguresContainer');
-  if (!container) return;
   container.innerHTML = `
     <h3 class="figures-title">${figTitle[lang]}</h3>
     <div class="figures-grid">
@@ -569,7 +567,6 @@ function renderComparisons() {
     fr: {topic:'Sujet',islamic:'Islamique',capitalist:'Capitaliste',socialist:'Socialiste'}
   };
   const container = document.getElementById('comparisonsContainer');
-  if (!container) return;
   const h = headers[lang];
   container.innerHTML = `
     <h3 class="comp-title">${compTitle[lang]}</h3>
@@ -952,7 +949,6 @@ function getRandomFact() {
 
 function renderFactOfDay() {
   const factContainer = document.getElementById('factOfDay');
-  if (!factContainer) return;
   const factTitle = { ar: '💡 هل تعلم؟', en: '💡 Did You Know?', fr: '💡 Le Saviez-Vous ?' };
   factContainer.innerHTML = `
     <div class="fact-card scroll-reveal">
