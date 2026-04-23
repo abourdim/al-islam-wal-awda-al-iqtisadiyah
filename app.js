@@ -466,6 +466,7 @@ function renderGlossary() {
     fr: 'Definitions simplifiees des principaux termes economiques islamiques'
   };
   const container = document.getElementById('glossaryContainer');
+  if (!container) return;
   container.innerHTML = `
     <div class="glossary-header">
       <h3 class="glossary-title">${glossaryTitle[lang]}</h3>
@@ -513,6 +514,7 @@ function renderKeyFigures() {
     fr: '🏛️ Pionniers de l\'Economie Islamique'
   };
   const container = document.getElementById('keyFiguresContainer');
+  if (!container) return;
   container.innerHTML = `
     <h3 class="figures-title">${figTitle[lang]}</h3>
     <div class="figures-grid">
@@ -567,6 +569,7 @@ function renderComparisons() {
     fr: {topic:'Sujet',islamic:'Islamique',capitalist:'Capitaliste',socialist:'Socialiste'}
   };
   const container = document.getElementById('comparisonsContainer');
+  if (!container) return;
   const h = headers[lang];
   container.innerHTML = `
     <h3 class="comp-title">${compTitle[lang]}</h3>
@@ -648,8 +651,8 @@ function renderAll() {
   { const _e=document.getElementById('tabQuiz'); if(_e) _e.textContent=t.tabQuiz; }
   { const _e=document.getElementById('tabProgress'); if(_e) _e.textContent=t.tabProgress; }
   { const _e=document.getElementById('tabAbout'); if(_e) _e.textContent=t.tabAbout; }
-  { const _e=document.getElementById('traitsTitle'); if(_e) _e.textContent=t.traitsTitle; }
-  { const _e=document.getElementById('traitsDesc'); if(_e) _e.textContent=t.traitsDesc; }
+  { const _e=(document.getElementById('traitsTitle') || document.getElementById('cardsTitle')); if(_e) _e.textContent=t.traitsTitle; }
+  { const _e=(document.getElementById('traitsDesc') || document.getElementById('cardsDesc')); if(_e) _e.textContent=t.traitsDesc; }
   { const _e=document.getElementById('quizTitle'); if(_e) _e.textContent=t.quizTitle; }
   { const _e=document.getElementById('quizDesc'); if(_e) _e.textContent=t.quizDesc; }
   { const _e=document.getElementById('progressTitle'); if(_e) _e.textContent=t.progressTitle; }
@@ -669,7 +672,7 @@ function renderHome() {
 
 // ═══════════════ RENDER: TRAITS ═══════════════
 function renderTraits() {
-  const t = T[lang]; const readTraits = getReadTraits(); const container = document.getElementById('traitsContainer');
+  const t = T[lang]; const readTraits = getReadTraits(); const container = (document.getElementById('traitsContainer') || document.getElementById('cardsContainer'));
   const searchHTML = `<div class="search-bar"><span class="search-icon">🔍</span><input class="search-input" id="traitsSearch" placeholder="${t.searchPlaceholder}" oninput="filterTraits(this.value)"></div>`;
   container.innerHTML = searchHTML + TRAITS.map(tr => { const d = tr[lang]; const isRead = readTraits.includes(tr.id); return `
     <div class="trait-card scroll-reveal ${isRead ? 'read' : ''}" id="trait-${tr.id}">
